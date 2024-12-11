@@ -20,15 +20,18 @@ def compute(str: str) -> int:
 
     return int(left) * int(right)
 
-if __name__ == "__main__":
-    txt = extract_from_file()
-    matches1, matches2 = find_all_matches(txt)
-    total1, total2 = 0, 0
-    for m in matches1:
-        total1 += compute(m)
-    
+def sum_of_mult(txt: str) -> int:
+    matches = find_all_matches(txt)[0]
+    total = 0
+    for m in matches:
+        total += compute(m)
+    return total
+
+def sum_of_mult_enabled(txt: str) -> int:
+    matches = find_all_matches(txt)[1]
+    total = 0
     flag = True
-    for m in matches2:
+    for m in matches:
         if m == "do()":
             flag = True
             continue
@@ -37,7 +40,10 @@ if __name__ == "__main__":
             continue
 
         if flag:
-            total2 += compute(m)
+            total += compute(m)
     
-    print(total1)
-    print(total2)
+    return total
+
+if __name__ == "__main__":
+    print("Sum of multiplications: ", sum_of_mult(extract_from_file()))
+    print("Sum of enabled multiplications: ", sum_of_mult_enabled(extract_from_file()))

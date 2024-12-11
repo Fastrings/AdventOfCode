@@ -70,5 +70,5 @@ def count_xmas_occurences_cross() -> int:
     return total_occurences
 
 if __name__ == "__main__":
-    print(count_xmas_occurences())
-    print(count_xmas_occurences_cross())
+    print("XMAS ocurences: ", count_xmas_occurences())
+    print("XMAS cross occurences", count_xmas_occurences_cross())
