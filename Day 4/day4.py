@@ -11,7 +11,7 @@ directions = [
     (-1, -1), #northwest
 ]
 
-def extract_from_file():
+def extract_from_file() -> list[list[str]]:
     m = []
     with open("Day 4\\input.txt") as file:
         line = file.readline()
@@ -21,17 +21,17 @@ def extract_from_file():
     
     return m
 
-def is_in_bounds(x, y):
+def is_in_bounds(x: int, y: int) -> bool:
     return 0 <= x < 140 and 0 <= y < 140
 
-def is_valid_occurence(x, y, dx, dy, m):
+def is_valid_occurence(x: int, y: int, dx: int, dy: int, m: list[list[str]]) -> bool:
     for k in range(4):
         nx, ny = x + k * dx, y + k * dy
         if not is_in_bounds(nx, ny) or m[nx][ny] != XMAS[k]:
             return False
     return True
 
-def count_xmas_occurences():
+def count_xmas_occurences() -> int:
     m = extract_from_file()
     total_occurences = 0
     for i in range(140):
@@ -42,7 +42,7 @@ def count_xmas_occurences():
     
     return total_occurences
 
-def is_valid_cross(x, y, m):
+def is_valid_cross(x: int, y: int, m: list[list[str]]) -> bool:
     #left to right
     if m[x - 1][y - 1] == 'M' and m[x + 1][y + 1] == 'S' and m[x + 1][y - 1] == 'M' and m[x - 1][y + 1] == 'S':
         return True
@@ -58,7 +58,7 @@ def is_valid_cross(x, y, m):
 
     return False
 
-def count_xmas_occurences_cross():
+def count_xmas_occurences_cross() -> int:
     m = extract_from_file()
     total_occurences = 0
     for i in range(1, 139):

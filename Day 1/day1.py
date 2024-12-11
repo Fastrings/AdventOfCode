@@ -1,4 +1,4 @@
-def extract_from_file():
+def extract_from_file() -> tuple[list, list]:
     left, right = [], []
     with open("Day 1\\input.txt", "r") as file:
         line = file.readline()
@@ -10,7 +10,7 @@ def extract_from_file():
     
     return sorted(left), sorted(right)
 
-def total_distance():
+def total_distance() -> int:
     left, right = extract_from_file()
     total_distance = 0
     for i in range(len(left)):
@@ -19,7 +19,7 @@ def total_distance():
     
     return total_distance
 
-def similarity_score():
+def similarity_score() -> int:
     left, right = extract_from_file()
     l = len(left)
     similarity_score = 0

@@ -1,19 +1,19 @@
 import re
 
-def extract_from_file():
+def extract_from_file() -> str:
     with open("Day 3\\input.txt") as file:
         txt = file.read()
     
     return txt
 
-def find_all_matches(txt):
+def find_all_matches(txt: str) -> tuple[list, list]:
     regex1 = r"mul\(\d{1,3},\d{1,3}\)"
     regex2 = r"mul\(\d{1,3},\d{1,3}\)|do\(\)|don't\(\)"
     matches1 = re.findall(regex1, txt)
     matches2 = re.findall(regex2, txt)
     return matches1, matches2
 
-def compute(str: str):
+def compute(str: str) -> int:
     newstr = str.replace('(', '').replace(')', '')[3:]
     left = newstr.split(',')[0]
     right = newstr.split(',')[1]

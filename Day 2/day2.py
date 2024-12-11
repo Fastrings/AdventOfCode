@@ -1,4 +1,4 @@
-def extract_from_file():
+def extract_from_file() -> list:
     reports = []
     with open("Day 2\\input.txt", "r") as file:
         line = file.readline()
@@ -9,7 +9,7 @@ def extract_from_file():
 
     return reports
 
-def is_report_safe(report):
+def is_report_safe(report: list) -> bool:
     differences = [report[i+1] - report[i] for i in range(len(report) - 1)]
     
     if all(1 <= diff <= 3 for diff in differences):
@@ -20,7 +20,7 @@ def is_report_safe(report):
     
     return False
 
-def is_report_safe_with_dampener(report):
+def is_report_safe_with_dampener(report: list) -> bool:
     if is_report_safe(report):
         return True
 
@@ -31,7 +31,7 @@ def is_report_safe_with_dampener(report):
 
     return False
 
-def report_safety_no_dampener():
+def report_safety_no_dampener() -> int:
     reports = extract_from_file()
     counter = 0
     for r in reports:
@@ -40,7 +40,7 @@ def report_safety_no_dampener():
 
     return counter
 
-def report_safety_dampener():
+def report_safety_dampener() -> int:
     reports = extract_from_file()
     counter = 0
     for r in reports:
