@@ -1,6 +1,6 @@
 from itertools import product
 
-def extract_from_file():
+def extract_from_file() -> dict:
     d = {}
     with open("Day 7\\input.txt") as file:
         line = file.readline()
@@ -10,7 +10,7 @@ def extract_from_file():
             d[left] = list(map(lambda x: int(x), right.split(' ')[1:]))
             line = file.readline()
         
-        return d
+    return d
 
 def compute_expression(numbers: list[int], operators: list[str]) -> int:
     res = numbers[0]
@@ -30,7 +30,7 @@ def is_expression_correct(numbers: list[int], total: int, operator_combinations:
             return True
     return False
 
-def sum_of_expressions():
+def sum_of_expressions() -> tuple[int, int]:
     di = extract_from_file()
     s1, s2 = 0, 0
     for total, exp in di.items():
