@@ -1,4 +1,4 @@
-def extract_from_file():
+def extract_from_file() -> tuple[tuple[int, int, int], list[int]]:
     with open("Day 17\\input.txt") as file:
         lines = file.readlines()
     
